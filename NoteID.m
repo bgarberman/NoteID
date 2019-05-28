@@ -14,7 +14,7 @@ clear all
 %
 %****************************
 
-[y, Fs] = audioread('a4.wav');
+[y, Fs] = audioread('tubegarden.wav');
 yL = y(1:length(y)-1,1)';
 %yR = y(1:length(y)-1,2)';
 
@@ -57,6 +57,10 @@ toc
 
 note
 freqIn
+
+datacursormode on
+dcm = datacursormode(gcf);
+set(dcm,'UpdateFcn',@myupdatefcn)
   
 plot(1:20000,yFFT(1:20000));
 title('Input Frequency Spectrum')
